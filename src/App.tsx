@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { getFooBaz } from "./experimental/optional-chain.js"
 
 class App extends Component {
   render() {
+    console.log("vaild", getFooBaz({
+      foo: {
+        baz: "this is foo baz"
+      }
+    }))
+    console.log("invalid", getFooBaz({}))
+
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
