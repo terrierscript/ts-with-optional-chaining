@@ -7,5 +7,5 @@
  */
 export const getFooBaz = (obj) => {
   // @ts-ignore
-  return obj?.foo?.baz?
+  return obj?.foo?.baz
 }

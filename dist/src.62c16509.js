@@ -24554,14 +24554,35 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"../src/logo.svg":[function(require,module,exports) {
-module.exports = "/logo.9616ee38.svg";
-},{}],"../src/App.css":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"../src/App.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"../src/App.tsx":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"../src/experimental/optional-chain.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getFooBaz = void 0;
+
+// @ts-nocheck
+
+/**
+ * 
+ * @param {*} obj 
+ * @returns {string | undefined}
+ */
+var getFooBaz = function getFooBaz(obj) {
+  var _obj$foo;
+
+  // @ts-ignore
+  return obj === null || obj === void 0 ? void 0 : (_obj$foo = obj.foo) === null || _obj$foo === void 0 ? void 0 : _obj$foo.baz;
+};
+
+exports.getFooBaz = getFooBaz;
+},{}],"../src/App.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24571,13 +24592,9 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _logo = _interopRequireDefault(require("./logo.svg"));
-
 require("./App.css");
 
-var _jsxFileName = "/Users/inuscript/github/ts-with-optional-chaining/src/App.tsx";
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _optionalChain = require("./experimental/optional-chain.js");
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -24617,51 +24634,21 @@ function (_super) {
   }
 
   App.prototype.render = function () {
+    console.log("vaild", (0, _optionalChain.getFooBaz)({
+      foo: {
+        baz: "this is foo baz"
+      }
+    }));
+    console.log("invalid", (0, _optionalChain.getFooBaz)({}));
     return _react.default.createElement("div", {
-      className: "App",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 23
-      },
-      __self: this
+      className: "App"
     }, _react.default.createElement("header", {
-      className: "App-header",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 24
-      },
-      __self: this
-    }, _react.default.createElement("img", {
-      src: _logo.default,
-      className: "App-logo",
-      alt: "logo",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 25
-      },
-      __self: this
-    }), _react.default.createElement("p", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 26
-      },
-      __self: this
-    }, "Edit ", _react.default.createElement("code", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 27
-      },
-      __self: this
-    }, "src/App.tsx"), " and save to reload."), _react.default.createElement("a", {
+      className: "App-header"
+    }, _react.default.createElement("p", null, "Edit ", _react.default.createElement("code", null, "src/App.tsx"), " and save to reload."), _react.default.createElement("a", {
       className: "App-link",
       href: "https://reactjs.org",
       target: "_blank",
-      rel: "noopener noreferrer",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 29
-      },
-      __self: this
+      rel: "noopener noreferrer"
     }, "Learn React")));
   };
 
@@ -24670,7 +24657,7 @@ function (_super) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./logo.svg":"../src/logo.svg","./App.css":"../src/App.css"}],"../src/serviceWorker.ts":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./App.css":"../src/App.css","./experimental/optional-chain.js":"../src/experimental/optional-chain.js"}],"../src/serviceWorker.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24802,19 +24789,11 @@ var _App = _interopRequireDefault(require("./App"));
 
 var serviceWorker = _interopRequireWildcard(require("./serviceWorker"));
 
-var _jsxFileName = "/Users/inuscript/github/ts-with-optional-chaining/src/index.tsx";
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render(_react.default.createElement(_App.default, {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 6
-  },
-  __self: void 0
-}), document.getElementById('root')); // If you want your app to work offline and load faster, you can change
+_reactDom.default.render(_react.default.createElement(_App.default, null), document.getElementById('root')); // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 
@@ -24847,7 +24826,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56152" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62244" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
